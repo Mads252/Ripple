@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "settings/config.php";
 
     if(!empty($_POST["data"])){
@@ -41,5 +42,53 @@
             </div>
             <button type="submit" class="submitBtn">Add post</button>
         </form> 
+
+        <section>
+		<div class="sign-up">
+			<h2>Lav en bruger</h2>
+			<form action="includes/signUpIncludes.php" method="post">
+				<input type="text" name="userId" placeholder="Navn">
+				<input type="password" name="password" placeholder="Kodeord">
+				<input type="password" name="passwordRepeat" placeholder="Gentag Kodeord">
+				<input type="text" name="email" placeholder="Email@">
+				<br>
+				<button type="submit" name="submit">Lav din bruger</button>
+			</form>
+		</div>
+		<div class="log-in">
+			<h2>Log in</h2>
+			<form action="includes/logInIncludes.php"  method="post">
+				<input type="text" name="userId" placeholder="Navn">
+				<input type="password" name="password" placeholder="Kodeord">
+				<br>
+				<button type="submit" name="submit">Log in</button>
+			</form>
+		</div>
+
+		<div class="logget-in">
+			<?php
+			if(isset($_SESSION["userId"]))
+
+			{
+				?>
+
+				
+				<h2><?php echo $_SESSION["useruniqueId"];?></h2>
+				
+				
+				<a href="includes/logOutIncludes.php">log ud</a>
+				
+				<?php
+			}
+			else{
+				?>
+				<h2>log in</h2>
+				
+				
+				<?php
+			}
+			?>
+		</div>
+	</section>
 </body>
 </html>
