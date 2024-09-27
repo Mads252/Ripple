@@ -1,6 +1,10 @@
 <?php
     session_start();
     require "settings/config.php";
+    require_once "templates/header.php";
+    
+    $username = isset($_SESSION['useruniqueId']) ? $_SESSION['useruniqueId'] : 'Guest';
+    $loggedin = isset($_SESSION['useruniqueId']) ? true : false;
 
     if(!empty($_POST["data"])){
         $data = $_POST["data"];
@@ -11,12 +15,27 @@
             $imageData = null; // Handle case where no image was uploaded
         }
 
+        if(isset($_SESSION["userId"])) {
+            $user_id = $_SESSION["userId"];
+        }
 
-        $sql = "INSERT INTO posts (textContent, postImage) VALUES (:textContent, :postImage)";
-        $bind = 
-            [":textContent" => $data["textContent"], 
+
+        $sql = "INSERT INTO posts (users_id, textContent, postImage) VALUES (:user_id, :textContent, :postImage)";
+        $bind = [
+            ":user_id" => $user_id,
+            ":textContent" => $data["textContent"], 
             ":postImage" => $imageData
         ];
+
+        $db->sql($sql, $bind, false);
+
+        $post_id = $db->lastInsertId();
+        $sql = "INSERT INTO user_posts (user_connection_id, post_connection_id) VALUES (:user_id, :post_id)";
+        $bind = [
+            ":user_id" => $user_id,
+            ":post_id" => $post_id,
+        ];
+
         $db->sql($sql, $bind, false);
     }
 ?>
@@ -29,66 +48,59 @@
     <title>Ripples</title>
 </head>
 <body>
-        <?php include("templates/header.php")?>
+        <?php renderNavBar($username, $loggedin)?>
 
-        <form class="addPostsForm" action="index.php" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="textContent">Text Content</label><br>
-                <input class="textContentInput" type="text" id="textContent" name="data[textContent]" placeholder="Write what you want to say?"><br>
+        <form class="formContainer" action="index.php" method="post" enctype="multipart/form-data">
+            <h2>Add post</h2>
+            <div class="textContentContainer">
+                <label class="labels" for="textContentInput">Subject</label>
+                <textarea class="textArea" id="textContentInput" name="data[textContent]" placeholder="Write something.." rows="10"></textarea>
             </div>
+            
             <div>
-                <label for="postImage">Post an image</label><br>
+                <label class="labels" for="postImage">Post an image</label>
                 <input type="file" id="postImage" name="data[postImage]">
             </div>
+
             <button type="submit" class="submitBtn">Add post</button>
         </form> 
 
-        <section>
+    <section>
 		<div class="sign-up">
-			<h2>Lav en bruger</h2>
-			<form action="includes/signUpIncludes.php" method="post">
-				<input type="text" name="userId" placeholder="Navn">
-				<input type="password" name="password" placeholder="Kodeord">
-				<input type="password" name="passwordRepeat" placeholder="Gentag Kodeord">
-				<input type="text" name="email" placeholder="Email@">
+            <form class="formContainer" action="includes/signUpIncludes.php" method="post">
+                <h2>Lav en bruger</h2>
+                <div>
+                    <label class="labels" for="userId">Navn</label>
+                    <input type="text" name="userId" placeholder="Navn">
+                </div>
+                <div>
+                    <label class="labels" for="password">Password</label>
+                    <input type="password" name="password" placeholder="Kodeord">
+                </div>
+                <div>
+                    <label class="labels" for="passwordRepeat">Repeat password</label>
+                    <input type="password" name="passwordRepeat" placeholder="Gentag Kodeord">
+                </div>
+                <div>
+                    <label class="labels" for="email">Email</label>
+                    <input type="text" name="email" placeholder="Email@">
+                </div>
 				<br>
-				<button type="submit" name="submit">Lav din bruger</button>
+				<button class="submitBtn" type="submit" name="submit">Lav din bruger</button>
 			</form>
 		</div>
+
 		<div class="log-in">
-			<h2>Log in</h2>
-			<form action="includes/logInIncludes.php"  method="post">
+            <form class="formContainer" action="includes/logInIncludes.php"  method="post">
+                <h2>Log in</h2>
 				<input type="text" name="userId" placeholder="Navn">
 				<input type="password" name="password" placeholder="Kodeord">
 				<br>
-				<button type="submit" name="submit">Log in</button>
+				<button class="submitBtn" type="submit" name="submit">Log in</button>
 			</form>
 		</div>
 
-		<div class="logget-in">
-			<?php
-			if(isset($_SESSION["userId"]))
-
-			{
-				?>
-
-				
-				<h2><?php echo $_SESSION["useruniqueId"];?></h2>
-				<h2><?php echo $_SESSION["userId"];?></h2>
-				
-				<a href="includes/logOutIncludes.php">log ud</a>
-				
-				<?php
-			}
-			else{
-				?>
-				<h2>log in</h2>
-				
-				
-				<?php
-			}
-			?>
-		</div>
+		
 	</section>
 </body>
 </html>
