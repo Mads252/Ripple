@@ -42,5 +42,25 @@ class signUp extends db{
         return $resultCheck;
     }
 
-  
+
+    protected function getUserId($useruniqueId){
+        $stmt = $this->openPDO()->prepare('SELECT users_id FROM users WHERE users_uniqueId = ?;');
+        
+        if(!$stmt->execute(array($useruniqueId))){
+            $stmt = null;
+            header("location: profile.php?error=stmtFAIL");
+            exit();
+        }
+        
+        if($stmt->rowCount() == 0){
+            $stmt = null;
+            header("location: profile.php?error=profilenFindesIkkeee");
+            exit();
+        }
+    
+        // Korrekt brug af fetchAll
+        $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $profileData;
+    }
+    
 }

@@ -5,9 +5,9 @@ if(isset($_POST["submit"])){
 
 
     // indlæsning af dataen
-    $userId = $_POST["userId"];
-    $password = $_POST["password"];
-   
+    $userId = htmlspecialchars($_POST["userId"], ENT_QUOTES, 'UTF-8');
+    $password = htmlspecialchars($_POST["password"], ENT_QUOTES, 'UTF-8');
+    
 
 
 
