@@ -14,8 +14,8 @@ class profileInfoController extends profileInfo {
 
 
     public function preSetProfileInfo(){
-        $profiles_about = "Hejsaaaa" . $this->useruniqueId . "Velkommen";
-        $profiles_describtion = "Hej" . $this->useruniqueId . "her kan du fortælle lidt mere om dig selv";
+        $profiles_about = "Hejsaaaa" ." ". $this->useruniqueId ." ". "Velkommen";
+        $profiles_describtion = "Hej" ." ". $this->useruniqueId ." ". "her kan du fortælle lidt mere om dig selv";
 
         $this->setProfileInfo($profiles_about, $profiles_describtion, $this->userId);
     }
