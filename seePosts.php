@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles/styles.css" rel="stylesheet">
+    <link href="./styles/styles.css" rel="stylesheet">
     <title>Ripples</title>
 </head>
 <body>
@@ -39,6 +39,7 @@
                             <div class="imgContainer">
                                 <img class="postImg" src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>" alt="<?php echo $post->textContent?> ">
                             </div>
+                            <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>">Edit</a>
                     </div>
                 <?php endif; ?>
                 <?php

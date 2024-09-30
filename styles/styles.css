@@ -115,3 +115,13 @@ li a:hover {
     max-height:100%;
     vertical-align: middle;
 }
+
+.editBtn {
+    float: right;
+    color: gray;
+    text-decoration: none;
+}
+
+.editBtn:hover {
+    border-bottom: 2px solid gray;
+}
