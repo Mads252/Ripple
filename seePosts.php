@@ -5,6 +5,25 @@
 
     $username = isset($_SESSION['useruniqueId']) ? $_SESSION['useruniqueId'] : 'Guest';
     $loggedin = isset($_SESSION['useruniqueId']) ? true : false;
+
+    if(!empty($_POST["post_id"]) && isset($_SESSION["userId"])){
+        
+        $post_id = $_POST["post_id"];
+        $user_id = $_SESSION["userId"];
+
+        $checkOwnerShipSql = "SELECT * FROM user_posts WHERE post_connection_id = :post_id AND user_connection_id = :user_id";
+        $bind = [
+            "post_id"=>$post_id,
+            ":user_id"=>$user_id,
+        ];
+
+        $result = $db->sql($checkOwnerShipSql, $bind);
+
+        if(!empty($result)){
+            $deleteUserPost = "DELETE FROM user_posts WHERE post_connection_id = :post_id AND user_connection_id = :user_id";
+            $db->sql($deleteUserPost, $bind);
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +59,12 @@
                                 <img class="postImg" src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>" alt="<?php echo $post->textContent?> ">
                             </div>
                             <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>">Edit</a>
-                    </div>
-                <?php endif; ?>
+                            <form method="post" action="seePosts.php">
+                                <input type="hidden" name="post_id" value="<?php echo $post->post_id ?>">
+                                <button type="submit" class="deleteBtn">Delete</button>
+                            </form>
+                            <?php endif; ?>
+                        </div>
                 <?php
             }
         ?>
@@ -63,7 +86,6 @@
                         <img class="postImg" src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>" alt="<?php echo $post->textContent?> ">
                     </div>
                     <?php endif; ?>
-                    
                 </div>
                 <?php
             }

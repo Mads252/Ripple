@@ -116,12 +116,14 @@ li a:hover {
     vertical-align: middle;
 }
 
-.editBtn {
+.editBtn, .deleteBtn {
     float: right;
     color: gray;
     text-decoration: none;
+    margin-right: 6px;
 }
 
-.editBtn:hover {
+.editBtn:hover, .deleteBtn:hover {
     border-bottom: 2px solid gray;
 }
+
