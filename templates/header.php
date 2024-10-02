@@ -16,7 +16,7 @@
                 <?php
                 }
                 ?>
-                <li class="username"><a><?php echo $username ?></a></li>
+                <li class="username"><a href="profile.php"><?php echo $username ?></a></li>
             </ul>
         </nav>   
         <?php 

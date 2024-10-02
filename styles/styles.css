@@ -127,3 +127,127 @@ li a:hover {
     border-bottom: 2px solid gray;
 }
 
+/* ------------------------------- Profilepage ------------------------------- */
+.profileSection {
+    /* display: flex; */
+}
+
+.basicProfileInfo {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 64px;
+}
+
+.profileImage {
+    border-radius: 50%;
+    border: 1px solid blue;;
+}
+
+.nameAndEmail {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid blue;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.profileTextAndPosts {
+    /* background-color: red; */
+    margin-top: 16px;
+    flex-grow: 2;
+}
+
+.profileText {
+    width: 100%;
+}
+
+.textHeader {
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid blue; */
+    /* margin: 0px 10px 0px 10px; */
+}
+
+.underline {
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+    box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
+}
+
+.textAndPosts {
+    padding-bottom: 40px;
+    padding-top: 20px;
+    /* margin: 0px 10px 0px 10px; */
+}
+
+.postsSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    gap: 16px; 
+    width: 100%;
+}
+
+.postImageContainer {
+    flex: 0 1 calc(33.333% - 16px);
+    box-sizing: border-box;
+    margin-bottom: 16px; 
+}
+
+.postImageContainer img {
+    /* width: 100%; */
+    /* height: auto; */
+}
+
+.postImageText {
+    position: absolute;
+    /* width: 100%; */
+    background-color: blue;
+    bottom: 0;
+}
+
+.postCard {
+    position: relative;
+}
+
+.cardText {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0px 0px 50px 50px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 0px 6px 0px;
+}
+
+.profileThumbnail {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 25%;
+    margin-top: 5px;
+}
+
+.cardText p {
+    margin-left: 2px;
+    text-align: center;
+    color: white;
+}
+
+.postImage {
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    
+}
+
+@media (min-width: 700px){
+    .profileSection {
+        display: flex;
+    }
+    
+    .profileTextAndPosts {
+        margin-top: 0px;
+    }
+}

@@ -87,8 +87,9 @@
                     </div>
                     <?php endif; ?>
                     <a href="likePost.php?id=<?php echo $post->post_id ?>">Like</a>
-                    <form method="post" action="includes/likePost.php">
-                        <button type="submit">Like this post</button>
+                    <form method="post" action="includes/likePostIncludes.php">
+                        <input type="hidden" name="post_id" value="<?php echo $post->post_id; ?>">
+                        <button type="submit" name="submit">Like this post</button>
                     </form>
                 </div>
                 <?php
