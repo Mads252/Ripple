@@ -86,6 +86,10 @@
                         <img class="postImg" src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>" alt="<?php echo $post->textContent?> ">
                     </div>
                     <?php endif; ?>
+                    <a href="likePost.php?id=<?php echo $post->post_id ?>">Like</a>
+                    <form method="post" action="includes/likePost.php">
+                        <button type="submit">Like this post</button>
+                    </form>
                 </div>
                 <?php
             }
