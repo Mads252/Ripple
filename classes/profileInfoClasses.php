@@ -19,7 +19,8 @@ class profileInfo extends db {
 
         }
 
-        $profileData = $stmt->fetchALL(PDO :: FECTH_ASSOC);
+        $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         return $profileData;
     }
 

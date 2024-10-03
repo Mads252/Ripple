@@ -3,8 +3,13 @@
     require "settings/config.php";
     require_once "templates/header.php";
 
+   
+    include "classes/profileInfoClasses.php";
+    include "classes/profileViewClasses.php";
     $username = isset($_SESSION['useruniqueId']) ? $_SESSION['useruniqueId'] : 'Guest';
     $loggedin = isset($_SESSION['useruniqueId']) ? true : false;
+    
+    $profileInfo = new profileView($db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +22,7 @@
 <body>
     <?php renderNavBar($username, $loggedin)?>
     <section class="container">
-        <h1>Hej <span style="color:blue">Oskar</span></h1>
+        <h1>Hej <span style="color:blue"><?php echo $_SESSION["useruniqueId"]?></span></h1>
         <section class="profileSection">
 
             <div class="basicProfileInfo">
@@ -26,16 +31,19 @@
                     <p>Oskar</p>
                     <p>oskar@gmail.com</p>
                 </div>
-                <button class="cta">Rediger</button>
+                <a href="profilesettings.php"><button class="cta">Rediger</button></a>
             </div>
 
             <div class="profileTextAndPosts">
                 <div class="profileText">
                     <h3 class="textHeader">Profiltekst</h3>
                     <div class="underline"></div>
-                    <p class="textAndPosts">Hei! Jeg heter Oskar 🇳🇴. Jeg er en eventyrlysten person som elsker naturen 🌲 og fjellturer 🏔️. 
-                        På fritiden liker jeg å fiske 🎣, stå på ski ⛷️ og høre på god musikk 🎶. 
-                        Jeg er også glad i teknologi 💻 og er alltid nysgjerrig på å lære nye ting! 🙌</p>
+                    <p class="textAndPosts"><?php $profileInfo->fetchAbout($_SESSION["userId"]);?></p>
+                </div>
+                <div class="profileText">
+                    <h3 class="textHeader">Beskrivelse</h3>
+                    <div class="underline"></div>
+                    <p class="textAndPosts"><?php $profileInfo->fetchAbout($_SESSION["userId"]);?></p>
                 </div>
                 <div>
                     <h3 class="textHeader">Dine opslag</h3>
