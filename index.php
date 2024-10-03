@@ -2,6 +2,7 @@
     session_start();
     require "settings/config.php";
     require_once "templates/header.php";
+    require_once "templates/profileComponent.php";
     
     $username = isset($_SESSION['useruniqueId']) ? $_SESSION['useruniqueId'] : 'Guest';
     $loggedin = isset($_SESSION['useruniqueId']) ? true : false;
@@ -49,6 +50,9 @@
 </head>
 <body>
         <?php renderNavBar($username, $loggedin)?>
+        <section class="container">
+            <?php profileComponent($username, $loggedin)?>
+        </section>
 
         <form class="formContainer" action="index.php" method="post" enctype="multipart/form-data">
             <h2>Add post</h2>

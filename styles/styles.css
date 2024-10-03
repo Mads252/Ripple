@@ -17,6 +17,25 @@ h1, h2, h3, p {
     margin: var(--dimensions);
 }
 
+/* ------------------------------- Homepage ------------------------------- */
+.profileBanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeProfileText {
+    color: blue;
+}
+
+.profileBannerImage {
+    margin: 10px;
+    border-radius: 50%;
+    border: 1px solid blue;
+    width: 200px;
+}
+
 /* ------------------------------- NAVBAR ------------------------------- */
 ul {
     list-style-type: none;
