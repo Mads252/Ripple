@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap');
+
 :root {
     --dimensions : 32px;
     --skyBlue : rgba(0,157,255,0.7);
@@ -283,7 +285,7 @@ li a:hover {
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap');
+
 
 
 
