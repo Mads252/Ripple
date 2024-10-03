@@ -26,7 +26,7 @@
         <section class="profileSection">
 
             <div class="basicProfileInfo">
-                <img class="profileImage" src="./images/image1.png"/>
+                <img class="profileImage" src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>"/>
                 <div class="nameAndEmail">
                     <p>Oskar</p>
                     <p>oskar@gmail.com</p>

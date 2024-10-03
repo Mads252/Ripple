@@ -25,7 +25,7 @@
         <section class="profileSection">
 
             <div class="basicProfileInfo">
-                <img class="profileImage" src="./images/image1.png"/>
+                <img class="profileImage" src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>"/>
                 <div class="nameAndEmail">
                     <p>Oskar</p>
                     <p>oskar@gmail.com</p>
@@ -34,13 +34,17 @@
             </div>
 
             <h1>ProfilIndstillinger</h1>
-<section>
-    <form action="includes/profileIncludes.php" method="post">
-    <textarea name="about" id=""><?php $profileInfo->fetchAbout($_SESSION["userId"]);?></textarea>
-    <textarea name="describtion" id=""><?php $profileInfo->fetchDescribtion($_SESSION["userId"]);?></textarea>
-    <button type="submit" name="submit">GEM</button>
-    </form>
-</section>
+        <section>
+            <form action="includes/profileIncludes.php" method="post" enctype="multipart/form-data">
+                <textarea name="about" id=""><?php $profileInfo->fetchAbout($_SESSION["userId"]);?></textarea>
+                <textarea name="describtion" id=""><?php $profileInfo->fetchDescribtion($_SESSION["userId"]);?></textarea>
+                <div>
+                    <label class="labels" for="postImage">Post an image</label>
+                    <input type="file" id="postImage" name="data[postImage]">
+                </div>
+                <button type="submit" name="submit">GEM</button>
+            </form>
+        </section>
 
         </section>
     </section>

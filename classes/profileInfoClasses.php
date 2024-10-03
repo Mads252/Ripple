@@ -24,12 +24,12 @@ class profileInfo extends db {
         return $profileData;
     }
 
-    protected function setUpdateProfileInfo($profiles_about, $profiles_describtion, $userId){
+    protected function setUpdateProfileInfo($profiles_about, $profiles_describtion, $profile_image, $userId){
 
-        $stmt = $this->openPDO()->prepare(' UPDATE profiles SET profiles_about = ?, profiles_describtion = ? WHERE users_id = ?;');
+        $stmt = $this->openPDO()->prepare(' UPDATE profiles SET profiles_about = ?, profiles_describtion = ?, profile_image = ? WHERE users_id = ?;');
         
         
-        if(!$stmt->execute(array($profiles_about, $profiles_describtion, $userId))){
+        if(!$stmt->execute(array($profiles_about, $profiles_describtion, $profile_image, $userId))){
 
             $stmt = null;
             header("location: profile.php?error=stmtFAIL");
@@ -40,12 +40,12 @@ class profileInfo extends db {
     }
 
 
-    protected function setProfileInfo($profiles_about, $profiles_describtion, $userId){
+    protected function setProfileInfo($profiles_about, $profiles_describtion, $profile_image, $userId){
 
-        $stmt = $this->openPDO()->prepare('INSERT INTO profiles (profiles_about, profiles_describtion, users_id) VALUES (?,?,?);');
+        $stmt = $this->openPDO()->prepare('INSERT INTO profiles (profiles_about, profiles_describtion, profile_image, users_id) VALUES (?,?,?,?);');
         
         
-        if(!$stmt->execute(array($profiles_about, $profiles_describtion, $userId))){
+        if(!$stmt->execute(array($profiles_about, $profiles_describtion, $profile_image, $userId))){
 
             $stmt = null;
             header("location: profile.php?error=stmtFAIL");

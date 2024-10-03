@@ -7,6 +7,13 @@
     $username = isset($_SESSION['useruniqueId']) ? $_SESSION['useruniqueId'] : 'Guest';
     $loggedin = isset($_SESSION['useruniqueId']) ? true : false;
 
+    include "classes/profileInfoClasses.php";
+    include "classes/profileViewClasses.php";
+    $profileInfo = new profileView($db);
+    $image_path = $profileInfo->fetchImage($_SESSION["userId"]);
+
+
+
     if(!empty($_POST["data"])){
         $data = $_POST["data"];
 
@@ -51,7 +58,7 @@
 <body>
         <?php renderNavBar($username, $loggedin)?>
         <section class="container">
-            <?php profileComponent($username, $loggedin)?>
+            <?php profileComponent($username, $loggedin, $image_path)?>
         </section>
 
         <form class="formContainer" action="index.php" method="post" enctype="multipart/form-data">

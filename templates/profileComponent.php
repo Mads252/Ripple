@@ -3,11 +3,11 @@
 
     require_once "settings/config.php";
 
-    function profileComponent($username, $loggedin){
+    function profileComponent($username, $loggedin, $image_path){
         ?>
         <div class="profileBanner">
             <h2 class="homeProfileText"><?php echo $username ?></h2>
-            <img src="./images/image1.png" class="profileBannerImage"/>
+            <img src="<?php echo $image_path ?>" alt="profileimage" class="profileBannerImage"/>
          </div>
     <?php 
     }
