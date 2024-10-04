@@ -63,13 +63,14 @@
 
         <section class="container">
             <h1>Feed</h1>
-
+<div class="postContainer">
             <?php 
             $sqlCall = "SELECT * FROM posts";
             $posts = $db->sql($sqlCall);
 
             foreach($posts as $post){
                 ?>
+                
                 <div class="post">
                         <p class="postText"><?php echo $post->textContent?></p>
 
@@ -84,9 +85,11 @@
                         <button type="submit" name="submit">Like this post</button>
                     </form>
                 </div>
+                
                 <?php
             }
         ?>
+        </div>
         </section>
 
         <!-- <form class="formContainer" action="index.php" method="post" enctype="multipart/form-data">

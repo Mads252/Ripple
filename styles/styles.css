@@ -72,11 +72,13 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-weight: 600;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: var(--skyBlue);
+    color: #ffffff;
     
 }
 
@@ -121,6 +123,15 @@ li a:hover {
 }
 
 /* ------------------------------- posts ------------------------------- */
+
+
+.postContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
 .post {
     margin: var(--dimensions);
     padding: var(--dimensions);
