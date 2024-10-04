@@ -35,6 +35,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $profileInfo->preSetProfileInfo();
     // tilbage til start
 
-    header("location: ../index.php?error=none");
+    header("location: ../logIn.php?error=none");
    
 }

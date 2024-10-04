@@ -24,6 +24,6 @@ if(isset($_POST["submit"])){
 
     // tilbage til start
 
-    header("location: ../index.php?error=none");
+    header("location: ../profile.php?error=none");
    
 }
