@@ -14,13 +14,13 @@ class likePostController extends likePost {
     public function likePost() {
         // Check if the input is valid
         if ($this->emptyInput() == false) {
-            header("Location: ../seePosts.php?error=emptyInput");
+            header("Location: ../index.php?error=emptyInput");
             exit();
         }
 
         // Optionally, check if the user has already liked the post
         if ($this->checkLike($this->user_id, $this->post_id)) {
-            header("Location: ../seePosts.php?error=alreadyLiked");
+            header("Location: ../index.php?error=alreadyLiked");
             exit();
         }
 
