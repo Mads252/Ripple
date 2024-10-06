@@ -48,7 +48,9 @@
         <section class="profileSection">
 
             <div class="basicProfileInfo">
-                <img class="profileImage" src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>"/>
+                <div class="profileImageContainer">
+                    <img class="profileImage" src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>"/>
+                </div>
                 <div class="nameAndEmail">
                     <p><?php echo $username ?></p>
                     <p><?php echo $_SESSION['userEmail']?></p>
@@ -71,41 +73,6 @@
                     <h3 class="textHeader">Dine opslag</h3>
                     <div class="underline"></div>
                     <div class="textAndPosts postsSection">
-                       <!-- <div class="postCard">
-                            <img src="./images/image1.png" class="postImage"/>
-                            <div class="cardText">
-                                <p>Nyter livet i solen! #sol</p>
-                                <div class="profileThumbnail">
-                                    <img src="./images/kjekkMann.png" class="profileThumbnail">
-                                    <p>Oskar</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="postCard">
-                            <img src="./images/image1.png" class="postImage"/>
-                            <div class="cardText">
-                                <p>Nyter livet i solen! #sol</p>
-                                <div class="profileThumbnail">
-                                    <img src="./images/kjekkMann.png" class="profileThumbnail">
-                                    <p>Oskar</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    
-
-                        <div class="postCard">
-                            <img src="./images/image1.png" class="postImage"/>
-                            <div class="cardText">
-                                <p>Nyter livet i solen! #sol</p>
-                                <div class="profileThumbnail">
-                                    <img src="./images/kjekkMann.png" class="profileThumbnail">
-                                    <p>Oskar</p>
-                                </div>
-                            </div>
-                        </div>
--->
 
                         <?php
             if(isset($_SESSION["userId"])) {
@@ -124,18 +91,20 @@
                         
 
                         <?php if(!empty($post->postImage)): ?>
-                            <div class="postCard">
+                        <div class="postCard">
                             <img src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>"  class="postImage" />
                             <div class="cardText">
                                 <p><?php echo $post->textContent?></p>
                                 <div class="profileThumbnail">
-                                    <img src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>" class="profileThumbnail">
+                                    <div class="profileThumbnailContainer">
+                                        <img src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>" class="profileImage">
+                                    </div>
                                     <p><?php echo $username ?></p>
                                     <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>"><img src="images/editIcon.png" alt="rediger opslag" class="icons"></a>
                                     <form method="post" action="seePosts.php">
-                                <input type="hidden" name="post_id" value="<?php echo $post->post_id ?>">
-                                <button type="submit" class="deleteBtn"><img src="images/deleteIcon.png" alt="delete post" class="icons"></button>
-                            </form>
+                                        <input type="hidden" name="post_id" value="<?php echo $post->post_id ?>">
+                                        <button type="submit" class="deleteBtn"><img src="images/deleteIcon.png" alt="delete post" class="icons"></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
