@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
     $likePost->likePost();
 
     // Redirect back to the post or another page after success
-    header("Location: ../seePosts.php");
+    header("Location: ../index.php");
     exit();
 }
 
