@@ -57,40 +57,54 @@
 </head>
 <body>
         <?php renderNavBar($username, $loggedin)?>
+
+    <div class="homePage">
+
         <section class="container">
             <?php profileComponent($username, $loggedin, $image_path)?>
         </section>
 
         <section class="container">
             <h1>Feed</h1>
-<div class="postContainer">
+            <div class="underline"></div>
+            <div class="postContainer">
             <?php 
             $sqlCall = "SELECT * FROM posts";
             $posts = $db->sql($sqlCall);
 
             foreach($posts as $post){
                 ?>
-                
-                <div class="post">
-                        <p class="postText"><?php echo $post->textContent?></p>
+                    <div class="post">
+                        
 
-                <?php if(!empty($post->postImage)): ?>
-                    <div class="imgContainer">
-                        <img class="postImg" src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>" alt="<?php echo $post->textContent?> ">
-                    </div>
-                    <?php endif; ?>
-                    <a href="likePost.php?id=<?php echo $post->post_id ?>">Like</a>
-                    <form method="post" action="includes/likePostIncludes.php">
-                        <input type="hidden" name="post_id" value="<?php echo $post->post_id; ?>">
-                        <button type="submit" name="submit">Like this post</button>
-                    </form>
-                </div>
-                
+                        <?php if(!empty($post->postImage)): ?>
+                        <div class="postCard">
+                            <img src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>"  class="postImage" />
+                            <div class="cardText">
+                                <p><?php echo $post->textContent?></p>
+                                <div class="profileThumbnail">
+                                    <div class="profileThumbnailContainer">
+                                        <img src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>" class="profileImage">
+                                    </div>
+                                    <p><?php echo $username ?></p>
+                                    <form method="post" action="includes/likePostIncludes.php">
+                                        <input type="hidden" name="post_id" value="<?php echo $post->post_id; ?>">
+                                        <button type="submit" name="submit"><img src="images/hand-thumbs-up-fill.svg"></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                            <?php endif; ?>
+                            
+                            
+                        </div>
                 <?php
-            }
-        ?>
-        </div>
+                }
+            ?>
+            </div>
         </section>
+
+    </div>
 
         <!-- <form class="formContainer" action="index.php" method="post" enctype="multipart/form-data">
             <h2>Add post</h2>
@@ -106,6 +120,11 @@
 
             <button type="submit" class="submitBtn">Add post</button>
         </form>  -->
+
+        <!-- <form method="post" action="includes/likePostIncludes.php">
+                        <input type="hidden" name="post_id" value="<?php echo $post->post_id; ?>">
+                        <button type="submit" name="submit">Like this post</button>
+        </form> -->
 
 </body>
 </html>
