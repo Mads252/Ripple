@@ -1,4 +1,6 @@
 <?php
+
+
     session_start();
     require "settings/config.php";
     require_once "templates/header.php";
@@ -123,16 +125,16 @@
 
                         <?php if(!empty($post->postImage)): ?>
                             <div class="postCard">
-                            <img src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>"  class="postImage"/>
+                            <img src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>"  class="postImage" />
                             <div class="cardText">
                                 <p><?php echo $post->textContent?></p>
                                 <div class="profileThumbnail">
                                     <img src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>" class="profileThumbnail">
                                     <p><?php echo $username ?></p>
-                                    <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>"><img src="images/editIcon.png" alt="rediger opslag"></a>
+                                    <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>"><img src="images/editIcon.png" alt="rediger opslag" class="icons"></a>
                                     <form method="post" action="seePosts.php">
                                 <input type="hidden" name="post_id" value="<?php echo $post->post_id ?>">
-                                <button type="submit" class="deleteBtn"><img src="images/deleteIcon.png" alt="delete post"></button>
+                                <button type="submit" class="deleteBtn"><img src="images/deleteIcon.png" alt="delete post" class="icons"></button>
                             </form>
                                 </div>
                             </div>
@@ -150,42 +152,7 @@
             </div>
 
         </section>
-            <section class="container">
-        <h1>Your posts</h1>
-        <?php
-            if(isset($_SESSION["userId"])) {
-                $user_id = $_SESSION["userId"];
-            }
-            
-            $sqlCall = "SELECT * FROM user_posts INNER JOIN posts ON post_connection_id = post_id WHERE user_connection_id = :user_id";
-            $bind = [
-                ":user_id"=>$user_id,
-            ];
-            $posts = $db->sql($sqlCall, $bind);
-            
-            foreach($posts as $post){
-                ?>
-                    <div class="post">
-                        
-
-                        <?php if(!empty($post->postImage)): ?>
-                            <div class="postCard">
-                            <img src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>"  class="postImage"/>
-                            <div class="cardText">
-                                <p><?php echo $post->textContent?></p>
-                                <div class="profileThumbnail">
-                                    <img src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>" class="profileThumbnail">
-                                    <p><?php echo $username ?></p>
-                                </div>
-                            </div>
-                        </div>
-                            <?php endif; ?>
-                        </div>
-                <?php
-            }
-        ?>
-
-    </section>
+           
     </section>
 </body>
 </html>

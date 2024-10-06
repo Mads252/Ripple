@@ -159,11 +159,13 @@ li a:hover {
     max-height:100%;
     vertical-align: middle;
 }
-
+.icons{
+    width: 30px;
+}
 .editBtn, .deleteBtn {
     float: right;
     border: none;
-    width: 30px;
+    
     background: transparent;
     text-decoration: none;
     margin-right: 6px;
@@ -274,6 +276,7 @@ li a:hover {
     align-items: center;
     margin-left: 25%;
     margin-top: 5px;
+    border-radius: 50%;
 }
 
 .cardText p {
