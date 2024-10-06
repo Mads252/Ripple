@@ -134,7 +134,7 @@ li a:hover {
 }
 .post {
     margin: var(--dimensions);
-    padding: var(--dimensions);
+   
     background-color: #f2f2f2;
     border-radius: 4px;
     width: 300px;
@@ -162,7 +162,9 @@ li a:hover {
 
 .editBtn, .deleteBtn {
     float: right;
-    color: gray;
+    border: none;
+    width: 30px;
+    background: transparent;
     text-decoration: none;
     margin-right: 6px;
 }

@@ -52,6 +52,10 @@ class logIn extends db{
         session_start();
         $_SESSION["userId"] =    $user[0]["users_id"];
         $_SESSION["useruniqueId"] =    $user[0]["users_uniqueId"];
+        $_SESSION["userEmail"] =    $user[0]["users_email"];
+       
+       
+       
       
         $stmt = null;
         }

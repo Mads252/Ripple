@@ -21,17 +21,7 @@
 <body>
     <?php renderNavBar($username, $loggedin)?>
     <section class="container">
-        <h1>Hej <span style="color:blue"><?php echo $_SESSION["useruniqueId"]?></span></h1>
-        <section class="profileSection">
-
-            <div class="basicProfileInfo">
-                <img class="profileImage" src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>"/>
-                <div class="nameAndEmail">
-                    <p>Oskar</p>
-                    <p>oskar@gmail.com</p>
-                </div>
-                <a href="profilesettings.php"><button class="cta">Rediger</button></a>
-            </div>
+        
 
             <h1>ProfilIndstillinger</h1>
         <section>

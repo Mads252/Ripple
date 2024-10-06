@@ -58,7 +58,7 @@
                             <div class="imgContainer">
                                 <img class="postImg" src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>" alt="<?php echo $post->textContent?> ">
                             </div>
-                            <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>">Edit</a>
+                            <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>"></a>
                             <form method="post" action="seePosts.php">
                                 <input type="hidden" name="post_id" value="<?php echo $post->post_id ?>">
                                 <button type="submit" class="deleteBtn">Delete</button>
