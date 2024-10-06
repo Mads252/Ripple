@@ -7,7 +7,9 @@
         ?>
         <div class="profileBanner">
             <h2 class="homeProfileText"><?php echo $username ?></h2>
-            <img src="<?php echo $image_path ?>" alt="profileimage" class="profileBannerImage"/>
+            <div class="profileBannerImageContainer">
+                <img src="<?php echo $image_path ?>" alt="profileimage" class="profileImage"/>
+            </div>
          </div>
     <?php 
     }
