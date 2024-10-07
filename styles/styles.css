@@ -189,6 +189,10 @@ li a:hover {
     border-bottom: 2px solid gray;
 }
 
+.likeIcon {
+    width: 10px;
+}
+
 /* ------------------------------- Profilepage ------------------------------- */
 .profileSection {
     /* display: flex; */
