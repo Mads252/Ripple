@@ -75,7 +75,6 @@
             foreach($posts as $post){
                 ?>
                     <div class="post">
-                        
 
                         <?php if(!empty($post->postImage)): ?>
                         <div class="postCard">
