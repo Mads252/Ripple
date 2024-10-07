@@ -173,10 +173,12 @@ li a:hover {
     max-height:100%;
     vertical-align: middle;
 } */
+
 .icons{
     width: 30px;
 }
-.editBtn, .deleteBtn {
+
+.editBtn, .deleteBtn, .likeBtn {
     float: right;
     border: none;
     
@@ -189,9 +191,6 @@ li a:hover {
     border-bottom: 2px solid gray;
 }
 
-.likeIcon {
-    width: 10px;
-}
 
 /* ------------------------------- Profilepage ------------------------------- */
 .profileSection {

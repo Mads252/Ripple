@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
                                 <p><?php echo $post->users_uniqueId ?></p>
                                 <form method="post" action="includes/likePostIncludes.php">
                                     <input type="hidden" name="post_id" value="<?php echo $post->post_id; ?>">
-                                    <button type="submit" name="submit"><img src="images/hand-thumbs-up-fill.svg"></button>
+                                    <button class="likeBtn" type="submit" name="submit"><img src="images/likeIcon.png" class="icons"></button>
                                 </form>
                             </div>
                         </div>

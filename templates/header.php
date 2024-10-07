@@ -8,7 +8,7 @@
             <ul>
                 
                 <li><a href="index.php">Home</a></li>
-                <li><a href="seePosts.php">Posts</a></li>
+                <li><a href="seePosts.php">Add posts</a></li>
                 
                 <?php 
                 if ($loggedin){
