@@ -51,23 +51,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
         <div class="underline"></div>
         <div class="postContainer">
         <?php 
-        $sqlCall = "SELECT * FROM posts";
+        $sqlCall = "SELECT * FROM posts 
+                    INNER JOIN user_posts ON posts.post_id = user_posts.post_connection_id
+                    INNER JOIN users ON user_posts.user_connection_id = users.users_id";
         $posts = $db->sql($sqlCall);
 
         foreach($posts as $post){
             ?>
                 <div class="post">
-
                     <?php if(!empty($post->postImage)): ?>
                     <div class="postCard">
                         <img src="data:image/jpeg;base64,<?php echo base64_encode($post->postImage); ?>"  class="postImage" />
                         <div class="cardText">
                             <p><?php echo $post->textContent?></p>
                             <div class="profileThumbnail">
-                                <div class="profileThumbnailContainer">
-                                    <img src="<?php echo $profileInfo->fetchImage($_SESSION["userId"])?>" class="profileImage">
-                                </div>
-                                <p><?php echo $username ?></p>
+                                <p><?php echo $post->users_uniqueId ?></p>
                                 <form method="post" action="includes/likePostIncludes.php">
                                     <input type="hidden" name="post_id" value="<?php echo $post->post_id; ?>">
                                     <button type="submit" name="submit"><img src="images/hand-thumbs-up-fill.svg"></button>
