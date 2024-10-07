@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(isset($_FILES['data']['tmp_name']['postImage']) && !empty($_FILES['data']['tmp_name']['postImage'])){
         $profile_image = file_get_contents($_FILES['data']['tmp_name']['postImage']);
     } else {
-        $profile_image = null; // Handle case where no image was uploaded
+        $profile_image = null; // hvis det ikke legges til bilde så settes den til null
     }
 
 

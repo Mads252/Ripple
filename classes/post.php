@@ -27,5 +27,3 @@ class Post {
         $this->db->sql($sql, $bind, false);
     }
 }
-
-//tjek

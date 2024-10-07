@@ -48,13 +48,6 @@ h1, h2, h3, p {
     color: var(--skyBlue);
 }
 
-/* .profileBannerImage {
-    margin: 10px;
-    border-radius: 50%;
-    border: 1px solid var(--skyBlue);
-    width: 200px;
-} */
-
 .skyBlue{
 
    color:  var(--skyBlue);
@@ -89,7 +82,6 @@ li a {
     font-weight: 600;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: var(--skyBlue);
     color: #ffffff;
@@ -168,12 +160,6 @@ li a:hover {
     border-radius: 6px;
 }
 
-/* .postImg { 
-    max-width:100%;
-    max-height:100%;
-    vertical-align: middle;
-} */
-
 .icons{
     width: 30px;
 }
@@ -193,10 +179,6 @@ li a:hover {
 
 
 /* ------------------------------- Profilepage ------------------------------- */
-.profileSection {
-    /* display: flex; */
-}
-
 .basicProfileInfo {
   
     display: flex;
@@ -242,8 +224,6 @@ li a:hover {
 
 .textHeader {
     padding-bottom: 10px;
-    /* border-bottom: 1px solid blue; */
-    /* margin: 0px 10px 0px 10px; */
 }
 
 .underline {
@@ -256,7 +236,6 @@ li a:hover {
 .textAndPosts {
     padding-bottom: 40px;
     padding-top: 20px;
-    /* margin: 0px 10px 0px 10px; */
 }
 
 .postsSection {
@@ -273,14 +252,8 @@ li a:hover {
     margin-bottom: 16px; 
 }
 
-.postImageContainer img {
-    /* width: 100%; */
-    /* height: auto; */
-}
-
 .postImageText {
     position: absolute;
-    /* width: 100%; */
     background-color: rgba(0,157,255,0.7);
     bottom: 0;
 }
@@ -301,12 +274,6 @@ li a:hover {
 }
 
 .profileThumbnail {
-    /* width: 50px;
-    display: flex;
-    align-items: center;
-    margin-left: 25%;
-    margin-top: 5px;
-    border-radius: 50%; */
     display: flex;
     justify-content: center;
     margin-top: 5px;
@@ -348,10 +315,6 @@ li a:hover {
         justify-content: flex-start;
     }
 }
-
-
-
-
 
 .mainClass{
     display: flex;

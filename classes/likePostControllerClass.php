@@ -4,13 +4,12 @@ class likePostController extends likePost {
     private $user_id;
     private $post_id;
 
-    // Constructor to initialize user and post IDs
     public function __construct($user_id, $post_id) {
         $this->user_id = $user_id;
         $this->post_id = $post_id;
     }
 
-    // Method to like a post
+    // like post funksjon
     public function likePost() {
         // Check if the input is valid
         if ($this->emptyInput() == false) {
@@ -18,18 +17,18 @@ class likePostController extends likePost {
             exit();
         }
 
-        // Optionally, check if the user has already liked the post
+        // sjekker om posten er allerede liket
         if ($this->checkLike($this->user_id, $this->post_id)) {
-            $this->unlike($this->user_id, $this->post_id);
+            $this->unlike($this->user_id, $this->post_id); // Hvis liket, så kjører den unlike istedet for like
             header("Location: ../index.php?info=postUnliked");
             exit();
         }
 
-        // Proceed with setting the like in the database
+        // Hvis den ikke er liket, så liker den
         $this->setLike($this->user_id, $this->post_id);
     }
 
-    // Check if the input fields are empty
+    // sjekker om det er en user til å like og en post å like
     private function emptyInput() {
         if (empty($this->user_id) || empty($this->post_id)) {
             return false;
