@@ -67,7 +67,7 @@
                 <div class="profileText">
                     <h3 class="textHeader">Beskrivelse</h3>
                     <div class="underline"></div>
-                    <p class="textAndPosts"><?php $profileInfo->fetchAbout($_SESSION["userId"]);?></p>
+                    <p class="textAndPosts"><?php $profileInfo->fetchDescribtion($_SESSION["userId"]);?></p>
                 </div>
                 <div>
                     <h3 class="textHeader">Dine opslag</h3>
@@ -101,7 +101,7 @@
                                     </div>
                                     <p><?php echo $username ?></p>
                                     <a class="editBtn" href="./editPost.php?id=<?php echo $post->post_id ?>"><img src="images/editIcon.png" alt="rediger opslag" class="icons"></a>
-                                    <form method="post" action="seePosts.php">
+                                    <form method="post" action="profile.php">
                                         <input type="hidden" name="post_id" value="<?php echo $post->post_id ?>">
                                         <button type="submit" class="deleteBtn"><img src="images/deleteIcon.png" alt="delete post" class="icons"></button>
                                     </form>

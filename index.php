@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
 
 </div>
 
-    <!-- Add Post Form -->
-    <?php require "templates/addPostView.php"; ?>
+    <!-- Add Post Form
+     -->
 </body>
 </html>
