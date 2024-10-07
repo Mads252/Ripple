@@ -20,7 +20,8 @@ class likePostController extends likePost {
 
         // Optionally, check if the user has already liked the post
         if ($this->checkLike($this->user_id, $this->post_id)) {
-            header("Location: ../index.php?error=alreadyLiked");
+            $this->unlike($this->user_id, $this->post_id);
+            header("Location: ../index.php?info=postUnliked");
             exit();
         }
 

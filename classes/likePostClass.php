@@ -15,6 +15,19 @@ class likePost extends db {
         $stmt = null;  // Close the statement
     }
 
+    protected function unlike($user_id, $post_id){
+        $stmt = $this->openPDO()->prepare('DELETE FROM likes WHERE user_like_connection_id = ? AND post_like_connection_id = ?');
+
+        // Execute the statement and check for errors
+        if (!$stmt->execute([$user_id, $post_id])) {
+            $stmt = null;
+            header("Location: ../index.php?id=" . $post_id . "&error=stmtFailed");
+            exit();
+        }
+
+        $stmt = null;  // Close the statement
+    }
+
     // Optionally, check if the user has already liked the post (to prevent duplicate likes)
     protected function checkLike($user_id, $post_id) {
         $stmt = $this->openPDO()->prepare('SELECT * FROM likes WHERE user_like_connection_id = ? AND post_like_connection_id = ?');
