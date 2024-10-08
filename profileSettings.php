@@ -32,7 +32,7 @@
                     <label class="labels" for="postImage">Post an image</label>
                     <input type="file" id="postImage" name="data[postImage]">
                 </div>
-                <button type="submit" name="submit">GEM</button>
+                <button type="submit" name="submit" class="CTA">GEM</button>
             </form>
         </section>
 
