@@ -73,6 +73,9 @@
         </div>
         
         <button class="CTA" type="submit" name="submit">Log in</button>
+        <div class="gray">
+            <p class="gray">Or if you dont have a user, create one </p><a href="createProfile.php" class="here"> here</a>
+        </div>
        </form>
     </div>
 

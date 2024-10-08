@@ -14,7 +14,7 @@ class profileInfo extends db {
         if( $stmt->rowCount()==0){
 
             $stmt = null;
-            header("location: profile.php?error=prilenFindesIkke");
+            header("location: createProfile.php?error=profilenFindesIkke");
             exit();
 
         }
