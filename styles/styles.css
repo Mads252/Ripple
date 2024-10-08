@@ -359,6 +359,15 @@ li a:hover {
     margin-bottom: 0;
 }
 
+.gray {
+    color: gray;
+    display: flex;
+}
+
+.here {
+    text-decoration: underline;
+}
+
 .CTA {
     color: #ffffff;
     background: rgb(0,157,255);

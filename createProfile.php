@@ -81,6 +81,9 @@
         </div>
         
         <button class="CTA" type="submit" name="submit">Register</button>
+        <div class="gray">
+            <p class="gray">Or if you have a user, login </p><a href="login.php" class="here"> here</a>
+        </div>
        </form>
     </div>
 
