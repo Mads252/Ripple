@@ -152,7 +152,7 @@ class db {
     public function openPDO(){
         try{
             $username = "madstofteriksen_dk";
-            $password = "";
+            $password = "DEbh4amBrexR95f2wFny";
             $dbh = new PDO('mysql:host=mysql11.unoeuro.com;dbname=madstofteriksen_dk_db_ripple', $username, $password);
             return $dbh;
         }

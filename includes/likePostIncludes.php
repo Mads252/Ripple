@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
 
     // hvis user id'en er null så blir man sendt til login siden
     if ($user_id === null) {
-        header("Location: ../login.php");
+        header("Location: ../logIn.php");
         exit();
     }
 

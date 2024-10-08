@@ -55,7 +55,7 @@
                     <p><?php echo $username ?></p>
                     <p><?php echo $_SESSION['userEmail']?></p>
                 </div>
-                <a href="profilesettings.php"><button class="CTA">Rediger</button></a>
+                <a href="profileSettings.php"><button class="CTA">Rediger</button></a>
             </div>
 
             <div class="profileTextAndPosts">
