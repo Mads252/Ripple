@@ -18,7 +18,6 @@
                 <?php
                 }
                 ?>
-                <li class="username"><a href="createProfile.php">Guest</a></li>
             </ul>
         </nav>   
         <?php 
